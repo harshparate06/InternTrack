@@ -1,0 +1,126 @@
+
+@model InternTrack.Models.InternshipApplication
+
+@{
+    ViewData["Title"] = "Add Internship";
+}
+
+<div class="container mt-4">
+    <h2>Add Internship Application</h2>
+    <p class="text-muted">Keep track of your next career opportunity!</p>
+
+    <div class="card shadow-sm mt-4">
+        <div class="card-body">
+            <form asp-action="Create" method="post">
+
+                <div asp-validation-summary="ModelOnly"
+                     class="text-danger"></div>
+
+                <div class="mb-3">
+                    <label asp-for="CompanyName" class="form-label">
+                        Company Name
+                    </label>
+                    <input asp-for="CompanyName" class="form-control"
+                           placeholder="e.g. Google" />
+                    <span asp-validation-for="CompanyName"
+                          class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="JobRole" class="form-label">
+                        Job Role
+                    </label>
+                    <input asp-for="JobRole" class="form-control"
+                           placeholder="e.g. Software Engineer Intern" />
+                    <span asp-validation-for="JobRole"
+                          class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="ApplicationUrl" class="form-label">
+                        Application URL
+                    </label>
+                    <input asp-for="ApplicationUrl" class="form-control"
+                           placeholder="https://company.com/careers" />
+                    <span asp-validation-for="ApplicationUrl"
+                          class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Location" class="form-label">
+                        Location
+                    </label>
+                    <input asp-for="Location" class="form-control"
+                           placeholder="e.g. Ahmedabad / Remote" />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="ApplicationDate" class="form-label">
+                        Application Date
+                    </label>
+                    <input asp-for="ApplicationDate" type="date"
+                           class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Deadline" class="form-label">
+                        Application Deadline
+                    </label>
+                    <input asp-for="Deadline" type="date"
+                           class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Status" class="form-label">
+                        Status
+                    </label>
+                    <select asp-for="Status" class="form-select">
+                        <option value="Saved">Saved</option>
+                        <option value="Applied">Applied</option>
+                        <option value="Interview">Interview</option>
+                        <option value="Selected">Selected</option>
+                        <option value="Rejected">Rejected</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="WorkMode" class="form-label">
+                        Work Mode
+                    </label>
+                    <select asp-for="WorkMode" class="form-select">
+                        <option value="Remote">Remote</option>
+                        <option value="Hybrid">Hybrid</option>
+                        <option value="On-site">On-site</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Stipend" class="form-label">
+                        Monthly Stipend (₹)
+                    </label>
+                    <input asp-for="Stipend" type="number"
+                           step="0.01" class="form-control"
+                           placeholder="e.g. 15000" />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Notes" class="form-label">
+                        Notes
+                    </label>
+                    <textarea asp-for="Notes" class="form-control"
+                              rows="3"
+                              placeholder="Add any important details..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    Save Application
+                </button>
+
+                <a asp-action="Index"
+                   class="btn btn-secondary ms-2">
+                    Cancel
+                </a>
+            </form>
+        </div>
+    </div>
+</div>

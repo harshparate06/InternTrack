@@ -1,0 +1,112 @@
+
+@model InternTrack.Models.InternshipApplication
+
+@{
+    ViewData["Title"] = "Edit Internship";
+}
+
+<div class="container mt-4">
+    <h2>Edit Internship Application</h2>
+    <p class="text-muted">Update your internship details below.</p>
+
+    <div class="card shadow-sm mt-4">
+        <div class="card-body">
+            <form asp-action="Edit" asp-route-id="@Model.ApplicationId"
+                  method="post">
+
+                <input type="hidden" asp-for="ApplicationId" />
+
+                <div asp-validation-summary="ModelOnly"
+                     class="text-danger"></div>
+
+                <div class="mb-3">
+                    <label asp-for="CompanyName" class="form-label"></label>
+                    <input asp-for="CompanyName" class="form-control" />
+                    <span asp-validation-for="CompanyName"
+                          class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="JobRole" class="form-label"></label>
+                    <input asp-for="JobRole" class="form-control" />
+                    <span asp-validation-for="JobRole"
+                          class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="ApplicationUrl" class="form-label">
+                        Application URL
+                    </label>
+                    <input asp-for="ApplicationUrl" class="form-control" />
+                    <span asp-validation-for="ApplicationUrl"
+                          class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Location" class="form-label"></label>
+                    <input asp-for="Location" class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="ApplicationDate" class="form-label">
+                        Application Date
+                    </label>
+                    <input asp-for="ApplicationDate" type="date"
+                           class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Deadline" class="form-label">
+                        Deadline
+                    </label>
+                    <input asp-for="Deadline" type="date"
+                           class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Status" class="form-label"></label>
+                    <select asp-for="Status" class="form-select">
+                        <option value="Saved">Saved</option>
+                        <option value="Applied">Applied</option>
+                        <option value="Interview">Interview</option>
+                        <option value="Selected">Selected</option>
+                        <option value="Rejected">Rejected</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="WorkMode" class="form-label">
+                        Work Mode
+                    </label>
+                    <select asp-for="WorkMode" class="form-select">
+                        <option value="Remote">Remote</option>
+                        <option value="Hybrid">Hybrid</option>
+                        <option value="On-site">On-site</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Stipend" class="form-label">
+                        Monthly Stipend (₹)
+                    </label>
+                    <input asp-for="Stipend" type="number" step="0.01"
+                           class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Notes" class="form-label"></label>
+                    <textarea asp-for="Notes" class="form-control"
+                              rows="3"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    Save Changes
+                </button>
+
+                <a asp-action="Index" class="btn btn-secondary ms-2">
+                    Cancel
+                </a>
+            </form>
+        </div>
+    </div>
+</div>
